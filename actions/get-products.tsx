@@ -1,5 +1,6 @@
-import { Product } from "@/types";
 import qs from "query-string";
+
+import { Product } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
