@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { Summary } from "@/components/summary";
 import { Container } from "@/components/ui/container";
 import { useCard } from "@/hooks/use-card";
 
@@ -33,6 +34,7 @@ const CardPage = () => {
                 ))}
               </ul>
             </div>
+            <Summary />
           </div>
         </div>
       </Container>
