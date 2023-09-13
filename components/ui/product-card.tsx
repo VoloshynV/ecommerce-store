@@ -1,9 +1,11 @@
 "use client";
-import Image from "next/image";
-import { Product } from "@/types";
-import { IconButton } from "@/components/ui/icon-button";
 import { Expand, ShoppingCart } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 import { Currency } from "@/components/ui/currency";
+import { IconButton } from "@/components/ui/icon-button";
+import { Product } from "@/types";
 
 interface ProductCardProps {
   data: Product;
@@ -11,9 +13,17 @@ interface ProductCardProps {
 
 export const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const { name, category, price, images } = data;
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/product/${data.id}`);
+  };
 
   return (
-    <div className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3">
+    <div
+      onClick={handleClick}
+      className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3"
+    >
       {/* Images and Actions */}
       <div className="relative aspect-square rounded-xl bg-gray-100">
         <Image
