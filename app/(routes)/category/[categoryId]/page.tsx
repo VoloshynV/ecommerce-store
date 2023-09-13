@@ -2,6 +2,7 @@ import getCategory from "@/actions/get-category";
 import getColors from "@/actions/get-colors";
 import getProducts from "@/actions/get-products";
 import getSizes from "@/actions/get-sizes";
+import { MobileFilters } from "@/app/(routes)/category/[categoryId]/components/mobile-filters";
 import { Billboard } from "@/components/billboard";
 import { Container } from "@/components/ui/container";
 import { NoResults } from "@/components/ui/no-results";
@@ -37,7 +38,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
         <Billboard data={category.billboard} />
         <div className="px-4 pb-24 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-5 lg:gap-y-8">
-            {/* Add Mobile Filters */}
+            <MobileFilters sizes={sizes} colors={colors} />
             <div className="hidden lg:block">
               <Filter valueKey="sizeId" name="Size" data={sizes} />
               <Filter valueKey="colorId" name="Color" data={colors} />
