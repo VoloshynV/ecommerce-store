@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 
+import { ENV } from "@/env";
 import { useCard } from "@/hooks/use-card";
 
 import Button from "./ui/button";
@@ -17,12 +18,9 @@ export const Summary = () => {
   const totalPrice = items.reduce((acc, item) => acc + item.price, 0);
 
   const onCheckout = async () => {
-    const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_API_URL}/orders`,
-      {
-        productsIds: items.map((item) => item.id),
-      },
-    );
+    const response = await axios.post(`${ENV.NEXT_PUBLIC_API_URL}/orders`, {
+      productsIds: items.map((item) => item.id),
+    });
 
     window.location = response.data.url;
   };
