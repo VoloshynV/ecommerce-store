@@ -15,13 +15,12 @@ export const Summary = () => {
   const searchParams = useSearchParams();
   const { items, removeAll } = useCard();
 
-  const totalPrice = items.reduce((acc, item) => acc + item.price, 0);
+  const totalPrice = items.reduce((acc, item) => acc + Number(item.price), 0);
 
   const onCheckout = async () => {
     const response = await axios.post(`${ENV.NEXT_PUBLIC_API_URL}/orders`, {
       productsIds: items.map((item) => item.id),
     });
-
     window.location = response.data.url;
   };
 
