@@ -14,6 +14,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           className,
         )}
         ref={ref}
+        disabled={disabled}
+        type={type}
         {...props}
       >
         {children}
