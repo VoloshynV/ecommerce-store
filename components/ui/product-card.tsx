@@ -45,7 +45,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
           fill
           src={images[0].url}
           alt="image"
-          className="aspect-square rounded-md object-cover"
+          className="aspect-square rounded-md object-contain"
         />
         <div className="absolute bottom-5 w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-6">
