@@ -12,7 +12,7 @@ export const Billboard: React.FC<BillboardProps> = ({ data }) => {
         className="relative aspect-square overflow-hidden rounded-xl bg-cover md:aspect-[2.4/1]"
       >
         <div className="flex h-full w-full flex-col items-center justify-center gap-y-8 text-center">
-          <div className="max-w-xs text-3xl font-bold sm:max-w-xl sm:text-5xl lg:text-6xl">
+          <div className="max-w-xs text-3xl font-bold text-white backdrop-blur-sm sm:max-w-xl sm:text-5xl lg:text-6xl">
             {data.label}
           </div>
         </div>
