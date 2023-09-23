@@ -29,7 +29,6 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        Test preview
         <Analytics />
       </body>
     </html>
