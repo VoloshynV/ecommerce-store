@@ -24,12 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn("flex flex-col", font.className)}>
-        <ModalProvider />
-        <ToastProvider />
-        <Navbar />
-        <div className="flex-1">{children}</div>
-        <Footer />
+      <body className={cn(font.className)}>
+        <div className="flex h-full flex-col">
+          <ModalProvider />
+          <ToastProvider />
+          <Navbar />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>
