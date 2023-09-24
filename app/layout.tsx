@@ -6,6 +6,7 @@ import { Urbanist } from "next/font/google";
 
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
 import { ToastProvider } from "@/providers/toast-provider";
 
@@ -23,11 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body className={cn("flex flex-col", font.className)}>
         <ModalProvider />
         <ToastProvider />
         <Navbar />
-        {children}
+        <div className="flex-1">{children}</div>
         <Footer />
         <Analytics />
       </body>
