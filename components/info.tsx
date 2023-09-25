@@ -1,5 +1,9 @@
-import { ShoppingCart } from "lucide-react";
+"use client";
 
+import { ShoppingCart } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import { useCard } from "@/hooks/use-card";
 import { Product } from "@/types";
 
 import Button from "./ui/button";
@@ -10,15 +14,22 @@ interface InfoProps {
 }
 
 export const Info: React.FC<InfoProps> = ({ data }) => {
+  const [mounted, setMounted] = useState(false);
+
+  const { addItem } = useCard();
   const { name, price, size, color } = data;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{name}</h1>
-      <div className="mt-3 flex items-end justify-between">
-        <p className="text-2xl text-gray-900">
-          <Currency value={price} />
-        </p>
+      <div className="mt-3 flex items-end justify-between text-2xl text-gray-900">
+        <Currency value={price} />
       </div>
       <hr className="my-4" />
       <div className="space-y-6">
@@ -35,7 +46,10 @@ export const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button className="flex items-center gap-x-2">
+        <Button
+          className="flex items-center gap-x-2"
+          onClick={() => addItem(data)}
+        >
           Add To Cart
           <ShoppingCart />
         </Button>
