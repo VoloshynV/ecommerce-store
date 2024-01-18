@@ -1,9 +1,3 @@
----
-title: Store
-subtitle: E-commerce
-date: 2023-09-12
----
-
 ## Project Overview
 
 Store is an E-commerce project that I created to build an online store. I used NextJS, Tailwind, Zustand, Stripe to build this project.
